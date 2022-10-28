@@ -3,8 +3,4 @@
 #import "MethodCallHelper.h"
 
 @interface BackgroundLocatorPlugin : NSObject<FlutterPlugin, CLLocationManagerDelegate, MethodCallHelperDelegate>
-
-+ (BackgroundLocatorPlugin*_Nullable) getInstance;
-- (void)invokeMethod:(NSString*_Nonnull)method arguments:(id _Nullable)arguments;
-
 @end

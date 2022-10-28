@@ -12,36 +12,23 @@ class LocationDto {
   final double heading;
   final double time;
   final bool isMocked;
-  final String provider;
 
-  LocationDto._(
-    this.latitude,
-    this.longitude,
-    this.accuracy,
-    this.altitude,
-    this.speed,
-    this.speedAccuracy,
-    this.heading,
-    this.time,
-    this.isMocked,
-    this.provider,
-  );
+  LocationDto._(this.latitude, this.longitude, this.accuracy, this.altitude,
+      this.speed, this.speedAccuracy, this.heading, this.time, this.isMocked);
 
   factory LocationDto.fromJson(Map<dynamic, dynamic> json) {
     bool isLocationMocked =
         Platform.isAndroid ? json[Keys.ARG_IS_MOCKED] : false;
     return LocationDto._(
-      json[Keys.ARG_LATITUDE],
-      json[Keys.ARG_LONGITUDE],
-      json[Keys.ARG_ACCURACY],
-      json[Keys.ARG_ALTITUDE],
-      json[Keys.ARG_SPEED],
-      json[Keys.ARG_SPEED_ACCURACY],
-      json[Keys.ARG_HEADING],
-      json[Keys.ARG_TIME],
-      isLocationMocked,
-      json[Keys.ARG_PROVIDER],
-    );
+        json[Keys.ARG_LATITUDE],
+        json[Keys.ARG_LONGITUDE],
+        json[Keys.ARG_ACCURACY],
+        json[Keys.ARG_ALTITUDE],
+        json[Keys.ARG_SPEED],
+        json[Keys.ARG_SPEED_ACCURACY],
+        json[Keys.ARG_HEADING],
+        json[Keys.ARG_TIME],
+        isLocationMocked);
   }
 
   Map<String, dynamic> toJson() {
@@ -55,12 +42,11 @@ class LocationDto {
       Keys.ARG_HEADING: this.heading,
       Keys.ARG_TIME: this.time,
       Keys.ARG_IS_MOCKED: this.isMocked,
-      Keys.ARG_PROVIDER: this.provider,
     };
   }
 
   @override
   String toString() {
-    return 'LocationDto{latitude: $latitude, longitude: $longitude, accuracy: $accuracy, altitude: $altitude, speed: $speed, speedAccuracy: $speedAccuracy, heading: $heading, time: $time, isMocked: $isMocked, provider: $provider}';
+    return 'LocationDto{latitude: $latitude, longitude: $longitude, accuracy: $accuracy, altitude: $altitude, speed: $speed, speedAccuracy: $speedAccuracy, heading: $heading, time: $time, isMocked: $isMocked}';
   }
 }

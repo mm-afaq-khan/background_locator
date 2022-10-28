@@ -19,6 +19,7 @@
         [delegate startLocatorService:callbackDispatcher];
         result(@(YES));
     } else if ([kMethodServiceInitialized isEqualToString:call.method]) {
+        [delegate setInitialized];
         result(nil);
     } else if ([kMethodPluginRegisterLocationUpdate isEqualToString:call.method]) {
         int64_t callbackHandle = [[arguments objectForKey:kArgCallback] longLongValue];
@@ -33,7 +34,7 @@
         [delegate setServiceRunning:false];
         result(@(YES));
     } else if ([kMethodPluginIsRegisteredLocationUpdate isEqualToString:call.method]) {
-        BOOL val = [delegate isServiceRunning];
+        BOOL val = [delegate isLocatorRegistered];
         result(@(val));
     }else if ([kMethodPluginIsServiceRunning isEqualToString:call.method]) {
         BOOL val = [delegate isServiceRunning];

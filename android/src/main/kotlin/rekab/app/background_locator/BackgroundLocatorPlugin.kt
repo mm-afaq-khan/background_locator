@@ -86,7 +86,6 @@ class BackgroundLocatorPlugin
 
                 val msg = "'registerLocator' requires the ACCESS_FINE_LOCATION permission."
                 result?.error(msg, null, null)
-                return
             }
 
             startIsolateService(context, settings)
@@ -150,7 +149,6 @@ class BackgroundLocatorPlugin
             if (!IsolateHolderService.isServiceRunning) {
                 // The service is not running
                 Log.d("BackgroundLocatorPlugin", "Locator service is not running, nothing to stop")
-                result?.success(true)
                 return
             }
 
@@ -197,14 +195,12 @@ class BackgroundLocatorPlugin
 
         @JvmStatic
         fun registerAfterBoot(context: Context) {
-            val args = PreferencesManager.getSettings(context)
+            val settings = PreferencesManager.getSettings(context)
 
             val plugin = BackgroundLocatorPlugin()
             plugin.context = context
 
-            initializeService(context, args)
-
-            val settings = args[Keys.ARG_SETTINGS] as Map<*, *>
+            initializeService(context, settings)
             startIsolateService(context, settings)
         }
     }

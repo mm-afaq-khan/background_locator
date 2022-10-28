@@ -53,9 +53,6 @@ FOUNDATION_EXPORT NSString *const kBCMSendLocation;
 FOUNDATION_EXPORT NSString *const kBCMInit;
 FOUNDATION_EXPORT NSString *const kBCMDispose;
 
-FOUNDATION_EXPORT NSString *const kPrefObservingRegion;
-FOUNDATION_EXPORT NSString *const kPrefServiceRunning;
-
 @end
 
 NS_ASSUME_NONNULL_END

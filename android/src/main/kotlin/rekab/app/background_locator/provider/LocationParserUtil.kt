@@ -27,9 +27,7 @@ class LocationParserUtil {
                     Keys.ARG_SPEED to location.speed,
                     Keys.ARG_SPEED_ACCURACY to speedAccuracy,
                     Keys.ARG_HEADING to location.bearing,
-                    Keys.ARG_TIME to location.time.toDouble(),
-                    Keys.ARG_PROVIDER to location.provider,
-            )
+                    Keys.ARG_TIME to location.time.toDouble())
         }
 
         fun getLocationMapFromLocation(location: LocationResult?): HashMap<Any, Any>? {
